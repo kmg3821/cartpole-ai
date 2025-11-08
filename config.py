@@ -12,10 +12,8 @@ import math
 import os
 
 
-try : device = jax.devices('tpu')
-except: 
-  try : device = jax.devices('gpu') 
-  except : device = jax.devices('cpu')
+try : device = jax.devices('gpu') 
+except : device = jax.devices('cpu')
 # device = jax.devices('cpu')
 
 
