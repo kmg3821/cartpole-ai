@@ -5,8 +5,6 @@ import os
 
 from simulation import *
 from config import *
-import optax
-import pickle
 
 jax.config.update("jax_compilation_cache_dir", f"jax_cache")
 jax.config.update("jax_persistent_cache_min_entry_size_bytes", -1)
@@ -16,7 +14,7 @@ jax.config.update("jax_persistent_cache_enable_xla_caches", "xla_gpu_per_fusion_
 log_dir = "./log"
 print_interval = 50
 save_interval = 100
-new_data_iteration = 4600
+new_data_iteration = 5000
 seed = 0
 
 os.makedirs(log_dir, exist_ok=True)

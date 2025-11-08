@@ -1,8 +1,3 @@
-import jax
-from jax import numpy as jnp
-from functools import partial
-from jax import scipy as jsp
-
 from config import *
 from network import *
 

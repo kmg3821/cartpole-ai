@@ -1,6 +1,5 @@
 from matplotlib import pyplot as plt
 from matplotlib.patches import Rectangle
-from collections import deque
 
 from network import *
 from config import *

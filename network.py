@@ -1,7 +1,3 @@
-import jax
-from jax import numpy as jnp
-from flax import nnx
-
 from config import *
 from environment import *
 
