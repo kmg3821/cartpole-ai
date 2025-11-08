@@ -4,7 +4,6 @@
 
 
 # Necessary packages
-Install the latest version
  - jax
  - flax
  - optax
