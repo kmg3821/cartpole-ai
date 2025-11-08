@@ -1,5 +1,6 @@
 from matplotlib import pyplot as plt
 from matplotlib.patches import Rectangle
+from datetime import datetime
 
 from network import *
 from config import *
@@ -20,6 +21,7 @@ def show_reward(log_path):
       reward_low.append(mean - 3*std)
       reward_high.append(mean + 3*std)
 
+    # plt.close()
     fig = plt.figure()
     ax = fig.add_subplot()
     ax.grid(True)
@@ -45,6 +47,7 @@ def show_cartpole(log_path):
   xlim = (-1.1, 1.1)
   ylim = (-(l1+l2+0.1), l1+l2+0.1)
 
+  # plt.close()
   fig1 = plt.figure("sim")
   ax1 = fig1.add_subplot()
   ax1.set_xlim(xlim)
@@ -60,9 +63,9 @@ def show_cartpole(log_path):
   plt.ion()
   plt.show()
 
-  state = jnp.array([-0.8, jnp.pi, jnp.pi, 0, 0, 0], jnp.float32)
+  state = jnp.array([0.0, jnp.pi, jnp.pi, 0, 0, 0], jnp.float32)
   jitted_step = jax.jit(step)
-  for t in range(3001):
+  for t in range(151):
     if t % (int(action_step_cnt/render_step_cnt)) == 0:
       observation = get_observation(state)
       mu, sig, w = actor(observation)
@@ -86,5 +89,5 @@ def show_cartpole(log_path):
       state = jnp.array([0, jnp.pi, jnp.pi, 0, 0, 0], jnp.float32)
 
 
-# show_cartpole('./log')
+show_cartpole('./log')
 show_reward('./log')
